@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dawaAllBot</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 4em; /* 好みに応じて調整 */
+        }
+
+        .content-container {
+            text-align: center;
+            z-index: 1; /* オーバーレイより手前に表示 */
+            align-items: center; /* 子要素を中央に配置 */
+            display: flex; /* 子要素を中央に配置するために flex を使用 */
+            flex-direction: column; /* 垂直方向に要素を配置 */
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 30, 0.7); /* 半透明の黒色背景 */
+            z-index: -1;
+        }
+
+        img {
+            max-width: 100%; /* 画像が親要素内に収まるようにする */
+            height: auto; /* アスペクト比を維持しつつ画像の高さを自動調整 */
+            margin-top: 20px;
+            cursor: pointer; /* カーソルをポインタに変更してクリッカブルであることを示す */
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="content-container">
+        <h2>圧倒的な会話とコマンドを備えたdawaAllBotをお試し下さい</h2>
+        <a href="https://discord.com/api/oauth2/authorize?client_id=1179022970761515078&permissions=8&scope=bot+applications.commands" target="_blank"> <!-- ここにリンク先のURLを指定 -->
+            <img src="bot.png">
+        </a>
+    </div>
+</body>
+</html>
