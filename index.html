@@ -26,6 +26,17 @@
             flex-direction: column; /* 垂直方向に要素を配置 */
         }
 
+        header {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 40px;
+  background: #6fd186;
+  box-sizing: border-box;
+}
+
         .overlay {
             position: fixed;
             top: 0;
@@ -42,15 +53,51 @@
             margin-top: 20px;
             cursor: pointer; /* カーソルをポインタに変更してクリッカブルであることを示す */
         }
+
+
+        button {
+            background-color: #7289da;
+            color: #000000;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* 本文のスタイル */
+        body {
+            margin-top: 4rem; /* headerの高さ分、本文を下にずらす */
+            padding: 1rem;
+        }
+
+
     </style>
 </head>
 <body>
-    <div class="overlay"></div>
-    <div class="content-container">
-        <h2>圧倒的な会話とコマンドを備えたdawaAllBotをお試し下さい</h2>
-        <a href="https://discord.com/api/oauth2/authorize?client_id=1179022970761515078&permissions=8&scope=bot+applications.commands" target="_blank"> <!-- ここにリンク先のURLを指定 -->
-            <img src="bot.png">
-        </a>
-    </div>
-</body>
+     <header id="header">
+            <div class="inner">
+                <button onclick="discordLogin()">Discordでログイン</button>
+              </ul>
+            </div>
+      </header>
+        <div class="overlay"></div>
+        <div class="content-container">
+            <h2>圧倒的な会話とコマンドを備えたdawaAllBotをお試し下さい</h2>
+            <a href="https://discord.com/api/oauth2/authorize?client_id=1179022970761515078&permissions=8&scope=bot+applications.commands" target="_blank">
+                <img src="bot.png" alt="Bot Image">
+            </a>
+            <a href="https://discord.com/invite/gnGBmKuHqs" target="_blank">
+                <img src="support.png" alt="Support Image">
+            </a>
+        </div>
+    
+        <script>
+            function discordLogin() {
+                const clientId = '1179022970761515078';
+                const redirectUri = 'https://dawaallbot.github.io/invitation/';
+                const authUrl = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=identify`;
+                window.location.href = authUrl;
+            }
+        </script>
+    </body>
 </html>
