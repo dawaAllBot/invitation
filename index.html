@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
-<link rel="shortcut icon" href="dawaAllBot.ico">
 <head>
+    <link rel="shortcut icon" href="dawaAllBot.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dawaAllBot</title>
@@ -15,27 +15,27 @@
         }
 
         h1 {
-            font-size: 4em; /* 好みに応じて調整 */
+            font-size: 4em;
         }
 
         .content-container {
             text-align: center;
-            z-index: 1; /* オーバーレイより手前に表示 */
-            align-items: center; /* 子要素を中央に配置 */
-            display: flex; /* 子要素を中央に配置するために flex を使用 */
-            flex-direction: column; /* 垂直方向に要素を配置 */
+            z-index: 1;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
         }
 
         header {
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 20px 40px;
-  background: #6fd186;
-  box-sizing: border-box;
-}
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            background: #6fd186;
+            box-sizing: border-box;
+        }
 
         .overlay {
             position: fixed;
@@ -43,17 +43,21 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 30, 0.7); /* 半透明の黒色背景 */
+            background: rgba(0, 0, 30, 0.7);
             z-index: -1;
         }
 
         img {
-            max-width: 100%; /* 画像が親要素内に収まるようにする */
-            height: auto; /* アスペクト比を維持しつつ画像の高さを自動調整 */
+            max-width: 100%;
+            height: auto;
             margin-top: 20px;
-            cursor: pointer; /* カーソルをポインタに変更してクリッカブルであることを示す */
+            cursor: pointer;
         }
 
+        .styled-link:hover {
+            background-color: #3498db;
+            color: #ffffff;
+        }
 
         button {
             background-color: #7289da;
@@ -64,40 +68,47 @@
             cursor: pointer;
         }
 
-        /* 本文のスタイル */
-        body {
-            margin-top: 4rem; /* headerの高さ分、本文を下にずらす */
-            padding: 1rem;
+        .styled-button {
+            background-color: #3498db;
+            color: #000000;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 16px;
+            cursor: pointer;
         }
 
-
+        /* 本文のスタイル */
+        body {
+            margin-top: 4rem;
+            padding: 1rem;
+        }
     </style>
 </head>
 <body>
-     <header id="header">
-            <div class="inner">
-                <button onclick="discordLogin()">Discordでログイン</button>
-              </ul>
-            </div>
-      </header>
-        <div class="overlay"></div>
-        <div class="content-container">
-            <h2>圧倒的な会話とコマンドを備えたdawaAllBotをお試し下さい</h2>
-            <a href="https://discord.com/api/oauth2/authorize?client_id=1179022970761515078&permissions=8&scope=bot+applications.commands" target="_blank">
-                <img src="bot.png" alt="Bot Image">
-            </a>
-            <a href="https://discord.com/invite/gnGBmKuHqs" target="_blank">
-                <img src="support.png" alt="Support Image">
-            </a>
+    <header id="header">
+        <div class="inner">
+            <button onclick="discordLogin()">Login</button>
+            <button class="styled-button" onclick="window.location.href='https://dawaallbot.github.io/docs/home.html'">docs</button>
         </div>
-    
-        <script>
-            function discordLogin() {
-                const clientId = '1179022970761515078';
-                const redirectUri = 'https://dawaallbot.github.io/invitation/';
-                const authUrl = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=identify`;
-                window.location.href = authUrl;
-            }
-        </script>
-    </body>
+    </header>
+    <div class="overlay"></div>
+    <div class="content-container">
+        <h2>圧倒的な会話とコマンドを備えたdawaAllBotをお試し下さい</h2>
+        <a href="https://discord.com/api/oauth2/authorize?client_id=1179022970761515078&permissions=8&scope=bot+applications.commands" target="_blank">
+            <img src="bot.png" alt="Bot Image">
+        </a>
+        <a href="https://discord.com/invite/gnGBmKuHqs" target="_blank">
+            <img src="support.png" alt="Support Image">
+        </a>
+    </div>
+
+    <script>
+        function discordLogin() {
+            const clientId = '1179022970761515078';
+            const redirectUri = 'https://dawaallbot.github.io/invitation/';
+            const authUrl = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code&scope=identify`;
+            window.location.href = authUrl;
+        }
+    </script>
+</body>
 </html>
